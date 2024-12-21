@@ -68,7 +68,22 @@ function playRound(humanChoice, computerChoice) {
     }
     }
 
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
     
-    playRound(humanSelection, computerSelection);
+    
+
+    function playGame() {
+        for(let i = 0; i < 5; i++) {
+            playRound(getHumanChoice(), getComputerChoice());
+            console.log("Human Score is: " + humanScore);
+            console.log("Computer Score is: " + computerScore);
+        }
+        if (humanScore > computerScore) {
+            console.log("You won!");
+        } else if (computerScore > humanScore) {
+            console.log("You lost!");
+        } else {
+            console.log("You tied with the computer!");
+        }
+    }
+
+    playGame();
