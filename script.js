@@ -1,7 +1,5 @@
 //scoreboard
 
-
-
 let humanScore = 0;
 let computerScore = 0;
 
@@ -38,10 +36,13 @@ buttons.forEach((button) => {
     })
 })
 
-const scoreBoard = document.getElementById("scoreboard");
+    const scoreBoard = document.getElementById("scoreboard");
     const span = document.createElement("span");
-    const scores = document.createElement("span");
+    const scores = document.createElement("div");
     scoreBoard.appendChild(span);
+    scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`;
+    scoreBoard.appendChild(scores);
+
 
 
 function playRound(humanChoice, computerChoice) {
@@ -75,14 +76,12 @@ function playRound(humanChoice, computerChoice) {
             
         if (humanScore > computerScore) {
             span.textContent = `Congratulations, You won! Score is ${humanScore} to ${computerScore}`;
-        } else if (computerScore > humanScore) {
-            span.textContent = `Sorry, you lost! Score is ${computerScore} to ${humanScore}`;
         } else {
-            span.textContent = `Score is tied! Score is ${computerScore} to ${humanScore}`;
+            span.textContent = `Sorry, you lost to the computer.`;
         }
     };
 
-    
+    scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`;
 }
 
     
